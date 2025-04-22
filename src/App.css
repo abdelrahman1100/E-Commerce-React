@@ -1,38 +1,109 @@
+/* Reset margin and padding, set a universal font and background color */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: white;
+  color: #333;
+  /* Dark text for readability */
+  line-height: 1.6;
+}
+
+/* Ensure .App takes the full viewport height */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  background-color: white;
+}
+
+/* Header styling */
+.header {
+  background-color: #f8f8f8;
+  /* Light gray background for contrast */
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Main content area */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+/* Responsive grid for components */
+.component-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* Grid layout for components */
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  /* Limit the width to avoid too wide a layout */
+  margin: 0 auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Styling individual components */
+.component {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.component:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer styling */
+.footer {
+  background-color: #f8f8f8;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .header {
+    font-size: 20px;
+    /* Smaller font size for mobile */
+    padding: 15px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .component-container {
+    grid-template-columns: 1fr;
+    /* Stacked layout for smaller screens */
+  }
+
+  .footer {
+    font-size: 12px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 15px;
+    /* Adjust padding for very small screens */
+  }
+
+  .component {
+    padding: 15px;
+    /* Adjust padding for components */
   }
 }
